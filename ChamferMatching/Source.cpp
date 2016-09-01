@@ -21,8 +21,6 @@
 #include <ctime>
 #include <cstdio>
 
-#include <Windows.h>
-#include <Psapi.h>
 
 #include "Color.h"
 #include "Contour.h"
@@ -82,9 +80,6 @@ int main(void){
 
 	endTime = (double)clock();
 
-	PROCESS_MEMORY_COUNTERS beginpms, endpms;
-
-	GetProcessMemoryInfo(GetCurrentProcess(), &beginpms, sizeof(beginpms));
 
 	for (int i = 0; i < matchpoints.size(); i++){
 		if (matchpoints[i].size() <= 0){
@@ -121,10 +116,7 @@ int main(void){
 		std::cout << std::endl;
 	}
 
-	GetProcessMemoryInfo(GetCurrentProcess(), &endpms, sizeof(endpms));
 
-	std::cout << "Peak Memory Usage: " << endpms.PeakWorkingSetSize - beginpms.WorkingSetSize << std::endl;
-	std::cout << "Memory Usage: " << endpms.WorkingSetSize - beginpms.WorkingSetSize << std::endl;
 	std::cout << "Take: " << (endTime - startTime) / CLOCKS_PER_SEC << "s" << std::endl;
 
 
