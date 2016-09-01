@@ -129,9 +129,9 @@ int main(void){
 
 
     //cv::imwrite("result2.png", image);
-	cv::imshow("result2", image);
+	//cv::imshow("result2", image);
 	cv::imwrite("results.png", image);
-	cv::imshow("asd", ending::DEBUG_img);
+	//cv::imshow("asd", ending::DEBUG_img);
 	cv::imwrite("debug.png", ending::DEBUG_img);
 	cv::waitKey(0);
 	return 0;
